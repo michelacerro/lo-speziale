@@ -1,0 +1,33 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    padding: 5px 10px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* --------- LOGO --------- */
+.logo {
+    margin: 5px;
+    color: var(--yellow);
+    font-family: 'Satisfy', cursive;;
+    font-size: 24px;
+    text-decoration: none;
+    text-shadow: 1px 1px 1px var(--dark-blue);
+    transform: 1s;
+}
+.logo:hover {opacity: 0.9;}
+
+
+/* ---------- NAVBAR ----------- */
+.navbar-link {
+    color: var(--white);
+    text-decoration: none;
+    text-transform: uppercase;
+    margin: 0 10px;
+}

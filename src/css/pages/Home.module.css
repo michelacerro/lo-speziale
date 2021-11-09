@@ -1,0 +1,54 @@
+/* ---------- HERO SECTION ---------- */
+.hero-section {
+    height: 70vh;
+    max-height: 960px;
+    /* width: 100vw; */
+
+    background-image: url('../../images/background-image.jpg');
+    background-size: cover;
+    background-position-y: top;
+    background-position-x: 50%;
+    background-attachment: fixed;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-content {
+    margin: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero-text {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.hero-text h1 {
+    color: var(--yellow);
+    font-family: 'Satisfy', cursive;;
+    font-size: 50px;
+    margin-bottom: 12px;
+}
+
+.hero-text h3 {
+    color: var(--white);
+    font-weight: 400;
+}
+
+/* ---------- end hero section */
+
+
+
+/* ---------- RESPONSIVENESS ---------- */
+/* hero section */
+@media only screen and (min-width: 350px) {
+    .hero-content h1 {transform: scale(1.2);}
+}
+@media only screen and (min-width: 801px) {
+    /* .hero-section {height: 100vh;} */
+    .hero-content {transform: scale(1.5);}
+}
