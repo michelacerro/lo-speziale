@@ -11,10 +11,10 @@ import Navbar from './Navbar';
 
 const Header = () => {
     return (
-        <div className={style['header']}>
+        <header className={style['header']}>
             <Link to='/' className={style['logo']}>Lo Speziale</Link>
             <Navbar />
-        </div>
+        </header>
     )
 };
 export default Header;

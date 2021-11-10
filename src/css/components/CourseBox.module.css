@@ -1,0 +1,31 @@
+.course-box {
+    width: 100%;
+    background-color: var(--white);
+    padding: 25px; 
+}
+
+.course-box h2 {
+    color: var(--blue);
+    font-family: 'Domine', serif;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.course-box p {line-height: 1.4;}
+
+.course-box ul {
+    list-style: none;
+    padding: 30px 20px;
+    line-height: 1.4;
+}
+
+.course-box li::before {
+    content: '\2714';
+    margin-right: 5px;
+    color: var(--red);
+}
+
+.course-box h4 {
+    color: var(--blue);
+    font-family: 'Domine', 'serif';
+}

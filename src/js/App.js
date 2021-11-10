@@ -27,12 +27,12 @@ const App = () => {
         <Header />
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/lo-speziale/chi-siamo' element={<About />} />
-          <Route path='/lo-speziale/corsi' element={<Courses />} />
-          <Route path='/lo-speziale/ricette' element={<Recipes />} />
-          <Route path='/lo-speziale/ricette/:id' element={<SingleRecipe />} />
-          <Route path='/lo-speziale/contatti' element={<Contacts />} />
-          <Route path='/lo-speziale/privacy' element={<Privacy />} />
+          <Route path='/chi-siamo' element={<About />} />
+          <Route path='/corsi' element={<Courses />} />
+          <Route path='/ricette' element={<Recipes />} />
+          <Route path='/ricette/:id' element={<SingleRecipe />} />
+          <Route path='/contatti' element={<Contacts />} />
+          <Route path='/privacy' element={<Privacy />} />
           <Route element={<Error />} />
         </Routes>
         <Footer />

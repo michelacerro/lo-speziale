@@ -12,7 +12,7 @@ const Navbar = () => {
     // const bar2 = document.getElementById('#icon-bar2');
     // const bar3 = document.getElementById('#icon-bar3');
     // const navbarIcon = document.querySelector('#navbar-icon');
-    const navbarList = document.querySelector('#navbar-list');
+    // const navbarList = document.querySelector('#navbar-list');
 
     const toggleMenu = () => {
         console.log('click');

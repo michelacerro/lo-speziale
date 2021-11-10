@@ -16,7 +16,7 @@ const HeroSection = () => {
                     <h1>Lo Speziale</h1>
                     <h3>La scuola di cucina incentrata sulle spezie</h3>
                 </div>
-                <Button link='/lo-speziale/corsi' text='scopri i nostri corsi' />
+                <Button link='/corsi' text='scopri i nostri corsi' />
             </div>
         </div>
     )
