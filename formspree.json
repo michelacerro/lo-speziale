@@ -1,0 +1,14 @@
+{
+    "forms": {
+        "contact": {
+            "name": "xyylrnrn",
+            "actions": [{ "type": "email", "to": "michelacerro@gmail.com" }],
+            "fields": {
+                "name": { "type": "text", "required": true },
+                "email": { "type": "email", "required": true },
+                "message": { "type": "text", "required": true },
+                "privacy": {"type": "checkbox", "required": true}
+            }
+        }
+    }
+}

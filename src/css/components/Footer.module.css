@@ -1,0 +1,29 @@
+.footer {
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(45deg, var(--dark-blue), var(--blue));
+    color: #ffffff;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-data h2 {
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.footer-icons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer-icons a {
+    text-decoration: none;
+    color: var(--white);
+    font-size: 20px;
+    margin: 7px;
+    transition: all 1s linear;
+}
+.footer a:hover {color: var(--yellow);}

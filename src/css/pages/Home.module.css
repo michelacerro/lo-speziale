@@ -2,7 +2,6 @@
 .hero-section {
     height: 70vh;
     max-height: 960px;
-    /* width: 100vw; */
 
     background-image: url('../../images/background-image.jpg');
     background-size: cover;
@@ -28,8 +27,6 @@
 }
 
 .hero-text h1 {
-    color: var(--yellow);
-    font-family: 'Satisfy', cursive;;
     font-size: 50px;
     margin-bottom: 12px;
 }
@@ -41,14 +38,82 @@
 
 /* ---------- end hero section */
 
+/* ---------- ABOUT SECTION --------- */
+/* ---------- end about section */
+
+/* ---------- RECIPES SECTION --------- */
+/* ---------- end recipes section */
+
+/* ---------- COURSES SECTION --------- */
+.courses-section {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.courses-container {
+    max-width: 1200px;
+    margin: 30px 0; 
+    display: grid;
+    grid-template-columns: 100%;
+    grid-gap: 30px;
+}
+
+/* ---------- end courses section */
+
+/* ---------- TESTIMONIALS SECTION --------- */
+.testimonials-section {
+    margin: 15px 0;
+    padding: 25px;
+    background-color: var(--blue);
+    display: flex;
+    justify-content: center;
+}
+
+.testimonials-container {
+    max-width: 960px;
+}
+/* ---------- end testimonials section */
+
+/* ---------- CONTACTS SECTION ---------- */
+.contacts-section {
+    width: 100%;
+    max-width: 960px;
+    margin: auto auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.contacts-section h1 {
+    color: var(--yellow);
+    font-size: 20px 0;
+}
+/* ---------- end contacts section */
 
 
 /* ---------- RESPONSIVENESS ---------- */
 /* hero section */
-@media only screen and (min-width: 350px) {
+@media only screen and (min-width: 351px) {
+    /* hero section */
     .hero-content h1 {transform: scale(1.2);}
 }
+
+@media only screen and (min-width: 501px) {
+    /* courses section */
+    .courses-container {grid-template-columns: calc(50% - 15px) calc(50% - 15px);}
+}
+@media only screen and (min-width: 751px) {
+    /* courses section */
+    .courses-container {grid-template-columns: calc(33% - 10px) calc(33% - 10px) calc(33% - 10px);}
+}
 @media only screen and (min-width: 801px) {
-    /* .hero-section {height: 100vh;} */
+    /* hero section */
     .hero-content {transform: scale(1.5);}
+}
+
+@media only screen and (min-width: 1001px) {
+    /* courses section */
+    .courses-container {grid-template-columns: calc(25% - 7.5px) calc(25% - 7.5px) calc(25% - 7.5px) calc(25% - 7.5px);}
 }

@@ -9,7 +9,7 @@ const Testimonials = (props) => {
     return (
         <div className={style['testimonials-box']}>
             <img src={process.env.PUBLIC_URL + `/images/testimonial-${props.info.image}.jpg`} alt={'testimonial-' + props.info.image}  />
-            <div>
+            <div className={style['info']}>
                <h4>{props.info.name}</h4> 
                <h5>{props.info.course}</h5>
                <p>{props.info.comment}</p>

@@ -8,6 +8,7 @@ import React from 'react';
 import HeroSection from '../components/Hero-section';
 import CoursesSection from '../components/Courses-section';
 import TestimonialsSection from '../components/Testimonials-section';
+import ContactsSection from '../components/Contacts-section';
 
 
 const Home = () => {
@@ -16,6 +17,7 @@ const Home = () => {
             <HeroSection />
             <CoursesSection />
             <TestimonialsSection />
+            <ContactsSection />
         </div>
     )
 };

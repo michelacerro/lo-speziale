@@ -1,5 +1,5 @@
 // Style
-// import style from '../../css/pages/Home.module.css';
+import style from '../../css/pages/Home.module.css';
 
 // Dependencies
 import React from 'react';
@@ -14,9 +14,8 @@ import TestimonialsData from '../../testimonials.json';
 const TestimonialsSection = () => {
     return (
         <div>
-            <div>
-                <h1>testimonianze</h1>
-                <div>
+            <div className={style['testimonials-section']}>
+                <div className={style['testimonials-container']}>
                     {TestimonialsData.map(data => <Testimonial key={data.name + data.id} info={data} />)}
                 </div>
             </div>
