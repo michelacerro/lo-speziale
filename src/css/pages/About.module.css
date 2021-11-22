@@ -1,0 +1,52 @@
+.about-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section-part {
+    padding: 70px 20px;
+    line-height: 1.4;
+}
+.section-part:nth-child(1), .section-part:nth-child(3) {max-width: 961px;}
+.section-part:nth-child(2) {
+    background-color: var(--white);
+    width: 100vw;
+}
+
+.value-container {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.value-container h3 {
+    margin: 0 0 20px 0;
+    position: relative;
+    top: -10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 45px;
+    color: var(--red);
+}
+
+.staff-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.school-container p {margin: 20px 0;}
+
+@media only screen and (min-width: 701px) {
+    .value-container {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    .value-container:nth-child(odd) {flex-direction: row-reverse;}
+
+    .value-container h3 {margin: 0 30px 0 0;}
+    .value-container:nth-child(odd) h3 {margin: 0 0 0 30px;}
+}

@@ -12,6 +12,7 @@ import Logo from './Logo';
 import {FiMapPin} from 'react-icons/fi';
 import {BsTelephone} from 'react-icons/bs';
 import {AiOutlineMail} from 'react-icons/ai';
+import {MdCopyright} from 'react-icons/md';
 
 
 const Footer = () => {
@@ -24,7 +25,8 @@ const Footer = () => {
                     <a href='tel:+39019246234'><BsTelephone /></a>
                     <a href='mailto:info@lospeziale.scuola.com' target='_blank' rel='noopener noreferrer'><AiOutlineMail /></a>
                 </div>
-                <Link to='/privacy'></Link>
+                <Link to='/privacy' className={style['footer-link']}>privacy policy</Link>
+                <p><MdCopyright /> 2021 - <b>Lo Speziale</b> - Scuola di cucina | P.IVA 00000000000</p>
             </div>
         </footer>
     )

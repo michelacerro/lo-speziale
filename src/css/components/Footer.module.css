@@ -1,11 +1,13 @@
 .footer {
     width: 100%;
-    padding: 20px;
+    padding: 50px;
     background: linear-gradient(45deg, var(--dark-blue), var(--blue));
-    color: #ffffff;
-    
+}
+
+.footer-data {
+    margin: auto auto;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
 }
 
@@ -24,6 +26,19 @@
     color: var(--white);
     font-size: 20px;
     margin: 7px;
-    transition: all 1s linear;
 }
 .footer a:hover {color: var(--yellow);}
+
+.footer-link {
+    margin: 7px;
+    font-size: 14px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--white);
+}
+.footer-link:hover {color: var(--yellow);}
+
+.footer-data p {
+    font-size: 14px;
+    color: var(--white);
+}

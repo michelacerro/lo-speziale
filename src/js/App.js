@@ -33,7 +33,7 @@ const App = () => {
           <Route path='/ricette/:id' element={<SingleRecipe />} />
           <Route path='/contatti' element={<Contacts />} />
           <Route path='/privacy' element={<Privacy />} />
-          <Route element={<Error />} />
+          <Route path='*' element={<Error />} />
         </Routes>
         <Footer />
       </BrowserRouter>

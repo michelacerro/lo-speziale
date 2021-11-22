@@ -8,7 +8,7 @@ import React from 'react';
 const Testimonials = (props) => {
     return (
         <div className={style['testimonials-box']}>
-            <img src={process.env.PUBLIC_URL + `/images/testimonial-${props.info.image}.jpg`} alt={'testimonial-' + props.info.image}  />
+            <img src={process.env.PUBLIC_URL + `/images/${props.info.image}`} alt={'testimonial-' + props.info.id}  />
             <div className={style['info']}>
                <h4>{props.info.name}</h4> 
                <h5>{props.info.course}</h5>
