@@ -1,0 +1,19 @@
+.recipes-page {
+    padding-top: 70px;
+    background-color: var(--white);
+}
+
+.recipes-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.recipes-button {
+    cursor: pointer;
+    border: none;
+    background-color: none;
+    font-size: 30px;
+    color: var(--red);
+    opacity: 0.9
+}
+.recipes-button:hover {opacity: 1;}
