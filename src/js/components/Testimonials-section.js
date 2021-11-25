@@ -16,7 +16,7 @@ const TestimonialsSection = () => {
         <div>
             <div className={style['testimonials-section']}>
                 <div className={style['testimonials-container']}>
-                    {TestimonialsData.map(data => <Testimonial key={data.name + data.id} info={data} />)}
+                    {TestimonialsData.map(data => <Testimonial key={'testimonial' + data.id} info={data} />)}
                 </div>
             </div>
         </div>

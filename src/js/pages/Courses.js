@@ -20,14 +20,14 @@ const Courses = () => {
             <div className={style['courses-container']}>
                 <h1>I nostri corsi</h1>
                 <div className={style['courses-grid']}>
-                    {CoursesData.map(data => <CourseBox key={data.name + data.id} info={data} />)}
+                    {CoursesData.map(data => <CourseBox key={'course' + data.id} info={data} />)}
                 </div>
             </div>
             <div className={style['cta-container']}>
                 <Button link='/contatti' text='contattaci per saperne di più' />
             </div>
             <div className={style['testimonials-container']}>
-                {TestimonialsData.map(data => <Testimonial key={data.name + data.id} info={data} />)}
+                {TestimonialsData.map(data => <Testimonial key={'testimonial' + data.id} info={data} />)}
             </div>
         </div>
     )

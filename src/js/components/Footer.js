@@ -21,7 +21,7 @@ const Footer = () => {
             <div className={style['footer-data']}>
                 <h2><Logo /></h2>
                 <div className={style['footer-icons']}>
-                    <a href='/contatti' ><FiMapPin /></a>
+                    <a href='/contatti#map' ><FiMapPin /></a>
                     <a href='tel:+39019246234'><BsTelephone /></a>
                     <a href='mailto:info@lospeziale.scuola.com' target='_blank' rel='noopener noreferrer'><AiOutlineMail /></a>
                 </div>

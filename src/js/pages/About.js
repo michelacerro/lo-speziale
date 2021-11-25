@@ -35,7 +35,7 @@ const About = () => {
             <div className={style['section-part']}>
                 <h1>Il nostro Staff</h1>
                 <div className={style['staff-container']}>
-                    {StaffData.map(data => <Staff key={data.name + data.id} info={data} />)}
+                    {StaffData.map(data => <Staff key={'staff' + data.id} info={data} />)}
                 </div>
             </div>
 

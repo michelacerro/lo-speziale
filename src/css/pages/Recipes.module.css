@@ -1,11 +1,64 @@
 .recipes-page {
-    padding-top: 70px;
-    background-color: var(--white);
+    background-color: var(--white); 
+    padding: 70px 20px;
 }
 
-.recipes-container {
-    display: flex;
+.contents-container {
+    margin: 0 auto;
+    max-width: 1000px;
+}
+
+/* ----- filters ----- */
+.filters-container {
+    background-color: transparent;
+    margin-top: 40px;
+    padding: 20px 0;
+}
+
+.filters-button {
+    font-size: 16px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.filters-input {
+    background-color: #ffffff;
+    padding: 20px;
+
+    display: none;
     flex-wrap: wrap;
+
+    /* transition: 1s linear; */
+}
+
+/* cuisines */
+.cuisines-section, .intolerances-section {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    line-height: 1.4;
+}
+.cuisines-section h4, .intolerances-section h4 {
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+.cuisines-section input, .intolerances-section input {margin-right: 5px;}
+/* end cuisines */
+
+/* ----- end filters */
+
+/* ----- recipes ------ */
+.recipes-container {
+    margin: 15px 0;
+    display: grid;
+    grid-template-columns: auto;
+    grid-gap: 20px;
+}
+
+/* ----- buttons ----- */
+.buttons-container {
+    display: flex;
+    justify-content: space-between;
 }
 
 .recipes-button {
@@ -17,3 +70,21 @@
     opacity: 0.9
 }
 .recipes-button:hover {opacity: 1;}
+
+
+/* ---------- RESPONSIVENESS ----------- */
+@media only screen and (min-width: 400px) {
+    .recipes-container {grid-template-columns: auto auto;}
+}
+
+@media only screen and (min-width: 590px) {
+    .recipes-container {grid-template-columns: auto auto auto;}
+}
+
+@media only screen and (min-width: 780px) {
+    .recipes-container {grid-template-columns: auto auto auto auto;}
+}
+
+@media only screen and (min-width: 970px) {
+    .recipes-container {grid-template-columns: auto auto auto auto auto;}
+}

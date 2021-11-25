@@ -53,8 +53,9 @@
 }
 
 .courses-container {
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 30px 0; 
+
     display: grid;
     grid-template-columns: 100%;
     grid-gap: 30px;
@@ -67,21 +68,21 @@
     margin: 15px 0;
     padding: 70px 0;
     background-color: var(--blue);
+
     display: flex;
     justify-content: center;
 }
 
-.testimonials-container {
-    max-width: 960px;
-}
+.testimonials-container {max-width: 1000px;}
 /* ---------- end testimonials section */
 
 /* ---------- CONTACTS SECTION ---------- */
 .contacts-section {
     width: 100%;
-    max-width: 960px;
+    max-width: 1000px;
     margin: auto auto;
     padding: 70px 0;
+
     display: flex;
     flex-direction: column;
 }
@@ -107,7 +108,7 @@
 }
 @media only screen and (min-width: 751px) {
     /* courses section */
-    .courses-container {grid-template-columns: calc(33% - 10px) calc(33% - 10px) calc(33% - 10px);}
+    .courses-container {grid-template-columns: calc(33% - 20px) calc(33% - 20px) calc(33% - 20px);}
 }
 @media only screen and (min-width: 801px) {
     /* hero section */
@@ -116,5 +117,5 @@
 
 @media only screen and (min-width: 1001px) {
     /* courses section */
-    .courses-container {grid-template-columns: calc(25% - 7.5px) calc(25% - 7.5px) calc(25% - 7.5px) calc(25% - 7.5px);}
+    .courses-container {grid-template-columns: calc(25% - 22.5px) calc(25% - 22.5px) calc(25% - 22.5px) calc(25% - 22.5px);}
 }

@@ -3,11 +3,18 @@
     flex-direction: column;
     align-items: center;
 
-    margin: 10px;
     padding: 10px;
-    width: 170px;
-    
+    min-width: 170px;
     background-color: #ffffff;
+
+    text-decoration: none;
+    color: var(--blue);
+
+    transition: 0.5s linear;
+}
+.recipe-preview:hover {
+    background-color: var(--white);
+    transform: scale(1.05);
 }
 
 .recipe-preview img {
@@ -17,7 +24,4 @@
     margin-bottom: 20px;
 }
 
-.recipe-preview h5 {
-    color: var(--blue);
-    text-align: center;
-}
+.recipe-preview h5 {text-align: center;}

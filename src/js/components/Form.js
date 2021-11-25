@@ -31,9 +31,8 @@ const Form = () => {
                 <label htmlFor='email'>
                     Email
                     <input type='email' id='email' name='email' placeholder='Email' className={style['input']} />
-                    <ValidationError field='email' prefix='Email' errors={state.errors} className={style['form-error']} />
                 </label>
-                
+                <ValidationError field='email' prefix='Email' errors={state.errors} className={style['form-error']} />
             </div>
 
             <label htmlFor='message'>Messaggio</label>
