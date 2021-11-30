@@ -27,6 +27,7 @@ const Courses = () => {
                 <Button link='/contatti' text='contattaci per saperne di più' />
             </div>
             <div className={style['testimonials-container']}>
+                <h1>I nostri studenti dicono di noi...</h1>
                 {TestimonialsData.map(data => <Testimonial key={'testimonial' + data.id} info={data} />)}
             </div>
         </div>

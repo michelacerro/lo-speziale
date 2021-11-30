@@ -90,7 +90,10 @@
 
 
 /* steps request */
-.steps-section {list-style: none;}
+.steps-section {
+    width: 100%;
+    list-style: none;
+}
 
 .steps-section li {
     display: flex;

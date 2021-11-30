@@ -13,11 +13,10 @@ import TestimonialsData from '../../testimonials.json';
 
 const TestimonialsSection = () => {
     return (
-        <div>
-            <div className={style['testimonials-section']}>
-                <div className={style['testimonials-container']}>
-                    {TestimonialsData.map(data => <Testimonial key={'testimonial' + data.id} info={data} />)}
-                </div>
+        <div className={style['testimonials-section']}>
+            <h1>I nostri studenti dicono di noi...</h1>
+            <div className={style['testimonials-container']}>
+                {TestimonialsData.map(data => <Testimonial key={'testimonial' + data.id} info={data} />)}
             </div>
         </div>
     )

@@ -38,9 +38,49 @@
 /* ---------- end hero section */
 
 /* ---------- ABOUT SECTION --------- */
+.about-section {
+    padding: 70px 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about-container {
+    padding: 0 20px;
+    margin: 30px 0;
+    width: calc(100vw - 40px);
+    max-width: 960px;
+}
+
+.about-container p {margin-bottom: 10px;}
+
+.about-container img {
+    margin-top: 20px;
+    max-width: 960px;
+}
 /* ---------- end about section */
 
 /* ---------- RECIPES SECTION --------- */
+.recipes-section {
+    padding: 70px 0;
+    border-top: 20px solid var(--blue);
+    border-bottom: 20px solid var(--blue);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.recipes-container {
+    padding: 0 20px;
+    margin: 30px auto;
+
+    display: grid;
+    grid-template-columns: 300px;
+    grid-gap: 30px;
+}
 /* ---------- end recipes section */
 
 /* ---------- COURSES SECTION --------- */
@@ -67,13 +107,11 @@
 .testimonials-section {
     margin: 15px 0;
     padding: 70px 0;
-    background-color: var(--blue);
-
-    display: flex;
-    justify-content: center;
+    background-color: var(--white);
 }
 
 .testimonials-container {
+    margin: 30px auto;
     padding: 0 20px;
     max-width: 1000px;
 }
@@ -103,9 +141,20 @@
     /* courses section */
     .courses-container {grid-template-columns: calc(50% - 15px) calc(50% - 15px);}
 }
+
+@media only screen and (min-width: 630px) {
+    /* recipes section */
+    .recipes-container {grid-template-columns: 300px 300px;}
+}
+
 @media only screen and (min-width: 750px) {
     /* courses section */
     .courses-container {grid-template-columns: calc(33% - 20px) calc(33% - 20px) calc(33% - 20px);}
+}
+
+@media only screen and (min-width: 960px) {
+    /* recipes section */
+    .recipes-container {grid-template-columns: 300px 300px 300px;}
 }
 
 @media only screen and (min-width: 1000px) {

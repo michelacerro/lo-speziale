@@ -2,11 +2,11 @@
 import style from '../../css/pages/Recipes.module.css';
 
 // Dependencies
-import React, {useState/*, useEffect*/} from 'react';
-// import axios from 'axios';
+import React, {useState, useEffect} from 'react';
+import axios from 'axios';
 
 // Components
-// import RecipePreview from '../components/RecipePreview';
+import RecipePreview from '../components/RecipePreview';
 
 // Icons
 import {AiOutlineRight, AiOutlineLeft} from 'react-icons/ai';
@@ -14,22 +14,24 @@ import {VscSettings} from 'react-icons/vsc';
 
 
 const Recipes = () => {
-    // const apiKey = '820aa817b7ac4ae98dc454965fcaa392';
+    const apiKey = '820aa817b7ac4ae98dc454965fcaa392';
     // const apiKey = process.env.REACT_APP_SPOONACULAR_API_KEY;
     const [offset, setOffset] = useState(0);
     // const [url, setUrl] = useState(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&offset=${offset}`);
+    const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&offset=${offset}`;
 
     // ----- get recipes
-    // const [recipes, setRecipes] = useState([]);
+    const [recipes, setRecipes] = useState([]);
 
-    // useEffect(() => {
-    //     async function fetchData () {
-    //         const response = await (axios.get(url))
-    //             .catch(error => alert(error));
-    //         setRecipes(response.data.results);
-    //     }
-    //     fetchData();
-    // }, [url]);
+    useEffect(() => {
+        async function fetchData () {
+            const response = await (axios.get(url))
+                .catch(error => alert(error));
+            setRecipes(response.data.results);
+        }
+        fetchData();
+    }, [url]);
+    console.log(recipes)
 
     // ----- open filters section
     const [open, setOpen] = useState(false);
@@ -52,32 +54,33 @@ const Recipes = () => {
     const [query, setQuery] = useState('');
     console.log(query);
     const setFilters = (e) =>{
-        e.preventDefault();
+        e.preventDefault();      
         console.log(query);
     }
     // intolerances filter
-    const intolerances = [];
+    const [intolerances, setIntolerances] = useState([]);
     const toggleIntolerances = (e) => {
-       if (!intolerances.includes(e.target.value)) {return intolerances.push(e.target.value)}
-       else {
-           const index = intolerances.indexOf(e.target.value);
-           return intolerances.splice(index, 1);
-        }
+       if (!intolerances.includes(e.target.value)) {setIntolerances(prevIntolerances => [...prevIntolerances, e.target.value]);}
+       else {setIntolerances(intolerances.filter(intolerance => intolerance !== e.target.value));}
     }
 
     // cuisines filter
-    const cuisines = [];
+    const [cuisines, setCuisines] = useState([]);
     const toggleCuisine = (e) => {
-        if (!cuisines.includes(e.target.value)) {cuisines.push(e.target.value)}
-        else {
-            const index = cuisines.indexOf(e.target.value);
-            cuisines.splice(index, 1);
-        }
+        if (!cuisines.includes(e.target.value)) {setCuisines(prevCuisines => [...prevCuisines, e.target.value]);}
+        else {setCuisines(cuisines.filter(cuisine => cuisine !== e.target.value));}
     }
 
     // ----- delete filters
     const deleteFilters = () => {
         setQuery('');
+        setIntolerances([]);
+        setCuisines([]);
+
+        const checkboxInput = document.querySelectorAll('input[type=checkbox');
+        for (let i = 0; i < checkboxInput.length; i++) {
+            checkboxInput[i].checked = false;
+        }
     }
 
     // ------ "change" page
@@ -185,9 +188,9 @@ const Recipes = () => {
                         ''
                 }
 
-                {/* <div className={style['recipes-container']}>
+                <div className={style['recipes-container']}>
                     {recipes.map(recipe => <RecipePreview key={recipe.id} info={recipe} />)}
-                </div> */}
+                </div>
                 
                 <div className={style['buttons-container']}>
                     <button onClick={prevRecipes} className={style['recipes-button']} >{offset < 10 ? '' : <AiOutlineLeft />}</button>
