@@ -14,7 +14,7 @@ const Marker = () => <div className={style['marker']}><FaMapMarkerAlt /></div>
 const Map = () => {
     return (
         <GoogleMapReact 
-            bootstrapURLKeys={{key: process.env.REACT_APP_MAPS_API_KEY}}
+            bootstrapURLKeys={{key: 'AIzaSyD2mAnqOz87N7K1H96zHdQwyyZXxYxi4m0'}}
             defaultCenter={{lat: 45.10665, lng: 7.63042}}
             defaultZoom={18}
         >

@@ -10,8 +10,10 @@ const Comment = (props) => {
         <div className={style['comment-box']}>
             <div className={style['color-avatar']}></div>
             <div className={style['comment']}>
-                <h3>{props.info.name}</h3>
-                {props.info.email ? <small>({props.info.email})</small> : ''}
+                <div>
+                    <h3>{props.info.name}</h3>
+                    {props.info.email ? <small>({props.info.email})</small> : ''}
+                </div>
                 <p>{props.info.comment}</p>
             </div>
         </div>

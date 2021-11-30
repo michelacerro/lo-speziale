@@ -11,12 +11,9 @@
     text-align: center;
 }
 
-.course-box p {line-height: 1.4;}
-
 .course-box ul {
     list-style: none;
     padding: 30px 20px;
-    line-height: 1.4;
 }
 
 .course-box li::before {

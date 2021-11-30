@@ -15,7 +15,7 @@
 /* --------- LOGO --------- */
 .header-logo {
     margin: 15px;
-    font-size: 24px;
+    font-size: 1.3em;
     text-decoration: none;
     transform: 1s;
 }
@@ -62,6 +62,8 @@
 }
 .navbar-link:hover {border-bottom: 1px solid #000000;}
 
+
+/* ----------- RESPONSIVENESS ---------- */
 @media only screen and (min-width: 800px) {
     .header {align-items: center;}
     .navbar-icon {display: none;}

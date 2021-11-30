@@ -10,7 +10,6 @@ import AboutSection from '../components/About-section';
 import CoursesSection from '../components/Courses-section';
 import TestimonialsSection from '../components/Testimonials-section';
 import ContactsSection from '../components/Contacts-section';
-import Comments from '../components/Comments';
 
 
 const Home = () => {
@@ -21,7 +20,6 @@ const Home = () => {
             <CoursesSection />
             <TestimonialsSection />
             <ContactsSection />
-            <Comments />
         </div>
     )
 };

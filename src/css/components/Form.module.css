@@ -22,14 +22,14 @@
     width: 100%;
     padding: 7px;
     border: none;
-    font-size: 16px;
+    font-size: 1em;
 }
 .form-data label, .form-box textarea, .form-privacy {margin-bottom: 20px;}
 
 .form-privacy {
     width: 100%;
     display: flex;
-    font-size: 11px;
+    font-size: 0.7em;
     font-weight: 300;
 }
 

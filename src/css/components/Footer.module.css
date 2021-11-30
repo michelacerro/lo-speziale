@@ -11,10 +11,7 @@
     align-items: center;
 }
 
-.footer-data h2 {
-    font-size: 30px;
-    font-weight: 400;
-}
+.footer-data h2 {font-weight: 400;}
 
 .footer-icons {
     display: flex;
@@ -24,14 +21,14 @@
 .footer-icons a {
     text-decoration: none;
     color: var(--white);
-    font-size: 20px;
+    font-size: 1.1em;
     margin: 7px;
 }
 .footer a:hover {color: var(--yellow);}
 
 .footer-link {
     margin: 7px;
-    font-size: 14px;
+    font-size: 0.8em;
     text-transform: uppercase;
     text-decoration: none;
     color: var(--white);
@@ -39,6 +36,6 @@
 .footer-link:hover {color: var(--yellow);}
 
 .footer-data p {
-    font-size: 14px;
+    font-size: 0.8em;
     color: var(--white);
 }
