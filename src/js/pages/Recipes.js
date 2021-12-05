@@ -17,8 +17,8 @@ const Recipes = () => {
     const apiKey = '820aa817b7ac4ae98dc454965fcaa392';
     // const apiKey = process.env.REACT_APP_SPOONACULAR_API_KEY;
     const [offset, setOffset] = useState(0);
-    // const [url, setUrl] = useState(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&offset=${offset}`);
-    const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&offset=${offset}`;
+    const [url, setUrl] = useState(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&offset=${offset}`);
+    // const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&offset=${offset}`;
 
     // ----- get recipes
     const [recipes, setRecipes] = useState([]);
@@ -31,7 +31,7 @@ const Recipes = () => {
         }
         fetchData();
     }, [url]);
-    console.log(recipes)
+    // console.log(recipes)
 
     // ----- open filters section
     const [open, setOpen] = useState(false);
@@ -47,16 +47,16 @@ const Recipes = () => {
         } else {
             input.style.display = 'none';
             button.style.backgroundColor = '';
+            button.style.borderBottom = 'none';
+            button.style.padding = '0';
         }
     }
 
-    // ----- add filters
+    // ----- set filters
+    // query and time filters
     const [query, setQuery] = useState('');
-    console.log(query);
-    const setFilters = (e) =>{
-        e.preventDefault();      
-        console.log(query);
-    }
+    const [time, setTime] = useState();
+
     // intolerances filter
     const [intolerances, setIntolerances] = useState([]);
     const toggleIntolerances = (e) => {
@@ -71,16 +71,60 @@ const Recipes = () => {
         else {setCuisines(cuisines.filter(cuisine => cuisine !== e.target.value));}
     }
 
+    // ----- add filters
+    const setFilters = (e) =>{
+        e.preventDefault();
+
+        // set initial config
+        setOffset(0);
+        setUrl(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&offset=${offset}`);
+
+        // set filters
+        let queryModified = '';
+        const modifyQuery = (text) => {
+            return queryModified = text.replace(' ', '-');
+        };
+        modifyQuery(query);
+
+        if (queryModified !== '') {
+            setUrl(prevUrl => prevUrl + `&query=${queryModified}`);
+        }
+
+        if (time !== undefined) {
+            setUrl(prevUrl => prevUrl + `&maxReadyTime=${time}`);
+        }
+
+        if (intolerances.length > 0) {
+            const intolerancesToString = intolerances.join();
+            setUrl(prevUrl => prevUrl + `&intolerances=${intolerancesToString}`);
+        }
+
+        if (cuisines.length > 0) {
+            const cuisinesToString = cuisines.join();
+            setUrl(prevUrl => prevUrl + `&cuisine=${cuisinesToString}`);
+        }
+
+        // reset query input
+        setQuery('');
+
+        // close filters section
+        toggleFilters();
+    };
+    console.log('out', url);
+
     // ----- delete filters
     const deleteFilters = () => {
+        setOffset(0);
         setQuery('');
+        setTime();
         setIntolerances([]);
         setCuisines([]);
+        setUrl(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&offset=${offset}`);
 
-        const checkboxInput = document.querySelectorAll('input[type=checkbox');
+        const checkboxInput = document.querySelectorAll('input[type=checkbox]');
         for (let i = 0; i < checkboxInput.length; i++) {
             checkboxInput[i].checked = false;
-        }
+        }       
     }
 
     // ------ "change" page
@@ -112,7 +156,7 @@ const Recipes = () => {
                                         <div className={style['filter-section']}>
                                             <h4>ricerca per nome</h4>
                                             <label htmlFor='query'><small>(in inglese)</small></label>
-                                            <input type='text' name='query' onChange={e => setQuery(e.target.value)}/>
+                                            <input type='text' name='query' value={query} onChange={e => setQuery(e.target.value)}/>
                                         </div>
                                     </div>
 
@@ -120,6 +164,8 @@ const Recipes = () => {
                                         {/* time */}
                                         <div className={style['filter-section']}>
                                             <h4>tempo</h4>
+                                            <label htmlFor='time'>Massimo tempo per la preparazione della ricetta <small>(in minuti)</small></label>
+                                            <input type='number' name='time' min='1' onChange={e => setTime(e.target.value)} />
                                         </div>
                                     </div>
                                 </div>
@@ -177,10 +223,9 @@ const Recipes = () => {
                                 </div>    
                             </div>
                         </div>
-                        <button type='submit' className={style['set-filters-button']}>inizia la ricerca</button>                  
+                        <button type='submit' className={style['set-filters-button']}>applica filtri</button>                  
                     </form>
                 </div>
-                {/* non legge intolerances e cuisines!!!!! */}
                 {query.length > 0 || intolerances.length > 0 || cuisines.length > 0
                     ?
                         <button className={style['delete-filters-button']} onClick={deleteFilters}>cancella filtri</button>
@@ -189,12 +234,17 @@ const Recipes = () => {
                 }
 
                 <div className={style['recipes-container']}>
-                    {recipes.map(recipe => <RecipePreview key={recipe.id} info={recipe} />)}
+                    {recipes.length > 0 
+                        ? 
+                            recipes.map(recipe => <RecipePreview key={recipe.id} info={recipe} />)
+                        :
+                            <p className={style['recipes-not-found']}>Siamo spiacenti, ma la ricerca da te tentata non ha prodotto risultati. Prova con una nuova ricerca.</p>
+                    }
                 </div>
                 
                 <div className={style['buttons-container']}>
                     <button onClick={prevRecipes} className={style['recipes-button']} >{offset < 10 ? '' : <AiOutlineLeft />}</button>
-                    <button onClick={nextRecipes} className={style['recipes-button']} >{offset > 900 ? '' : <AiOutlineRight />}</button>
+                    <button onClick={nextRecipes} className={style['recipes-button']} >{offset > 900 || recipes.length < 10 ? '' : <AiOutlineRight />}</button>
                 </div>
             </div>    
         </div>
