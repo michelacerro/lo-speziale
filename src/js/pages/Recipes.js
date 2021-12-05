@@ -175,30 +175,26 @@ const Recipes = () => {
                     <form id='filters-input' className={style['filters-input']} onSubmit={setFilters}>
 
                         <div className={style['filters-columns']}>
-                            <div className={style['first-column']}>
-                                <div className={style['second-column']}>
-                                    <div className={style['sub-column']}>
-                                        {/* query */}
-                                        <div className={style['filter-section']}>
-                                            <h4>ricerca per nome</h4>
-                                            <label htmlFor='query'><small>(in inglese)</small></label>
-                                            <input type='text' name='query' value={query} onChange={e => setQuery(e.target.value)}/>
-                                        </div>
+                            <div className={style['single-column']}>
+                                <div className={style['double-section']}>
+                                    {/* query */}
+                                    <div className={style['filter-section']}>
+                                        <h4>ricerca per nome</h4>
+                                        <label htmlFor='query'><small>(in inglese)</small></label>
+                                        <input type='text' name='query' value={query} onChange={e => setQuery(e.target.value)}/>
                                     </div>
 
-                                    <div className={style['sub-column']}>                            
-                                        {/* time */}
-                                        <div className={style['filter-section']}>
-                                            <h4>tempo</h4>
-                                            <label htmlFor='time'>Massimo tempo per la preparazione della ricetta <small>(in minuti)</small></label>
-                                            <input type='number' name='time' min='1' onChange={e => setTime(e.target.value)} />
-                                        </div>
+                                    {/* time */}
+                                    <div className={style['filter-section']}>
+                                        <h4>tempo</h4>
+                                        <label htmlFor='time'>Massimo tempo per la preparazione della ricetta <small>(in minuti)</small></label>
+                                        <input type='number' name='time' min='1' onChange={e => setTime(e.target.value)} />
                                     </div>
                                 </div>
 
-                                <div className={style['third-column']}>
+                                <div className={style['single-section']}>
                                     {/* intolerances */}
-                                    <div className={style['filter-section']}>
+                                    <div className={style['one-section']}>
                                         <h4>intolleranze</h4>
                                         <label><input type='checkbox' name='intolerances' value='dairy' onClick={toggleIntolerances} />Latticini</label>
                                         <label><input type='checkbox' name='intolerances' value='egg' onClick={toggleIntolerances} />Uova</label>
@@ -211,42 +207,46 @@ const Recipes = () => {
                                         <label><input type='checkbox' name='intolerances' value='soy' onClick={toggleIntolerances} />Soia</label>
                                         <label><input type='checkbox' name='intolerances' value='sulfite' onClick={toggleIntolerances} />Solfiti</label>
                                         <label><input type='checkbox' name='intolerances' value='tree-nut' onClick={toggleIntolerances} />Albero di Noce</label>
-                                        <label><input type='checkbox' name='intolerances' value='wheat' onClick={toggleIntolerances} />Frumento</label>
+                                        <label><input type='checkbox' name='intolerances' value='wheat' onClick={toggleIntolerances} />Frumento</label>   
                                     </div>
                                 </div>
                             </div>
 
-                            <div className={style['forth-column']}>
+                            <div className={style['double-column']}>
                                 {/* cuisines */}
-                                <div className={style['filter-section']}>
-                                    <h4>cucine</h4>
-                                    <label><input type='checkbox' name='cuisines' value='african' onClick={toggleCuisine} />Africana</label>
-                                    <label><input type='checkbox' name='cuisines' value='american' onClick={toggleCuisine} />Americana</label>
-                                    <label><input type='checkbox' name='cuisines' value='british' onClick={toggleCuisine} />Britannica</label>
-                                    <label><input type='checkbox' name='cuisines' value='cajun' onClick={toggleCuisine} />Cajun</label>
-                                    <label><input type='checkbox' name='cuisines' value='caribbean' onClick={toggleCuisine} />Caraibica</label>
-                                    <label><input type='checkbox' name='cuisines' value='chinese' onClick={toggleCuisine} />Cinese</label>
-                                    <label><input type='checkbox' name='cuisines' value='korean' onClick={toggleCuisine} />Coreana</label>
-                                    <label><input type='checkbox' name='cuisines' value='jewish' onClick={toggleCuisine} />Ebraica</label>
-                                    <label><input type='checkbox' name='cuisines' value='eastern-european' onClick={toggleCuisine} />dell'Est Europa</label>
-                                    <label><input type='checkbox' name='cuisines' value='european' onClick={toggleCuisine} />Europea</label>
-                                    <label><input type='checkbox' name='cuisines' value='french' onClick={toggleCuisine} />Francese</label>
-                                    <label><input type='checkbox' name='cuisines' value='greek' onClick={toggleCuisine} />Greca</label>
-                                    <label><input type='checkbox' name='cuisines' value='indian' onClick={toggleCuisine} />Indiana</label>
-                                    <label><input type='checkbox' name='cuisines' value='irish' onClick={toggleCuisine} />Irlandese</label>
-                                    <label><input type='checkbox' name='cuisines' value='italian' onClick={toggleCuisine} />Italiana</label>
-                                    <label><input type='checkbox' name='cuisines' value='japanese' onClick={toggleCuisine} />Giapponese</label>
-                                    <label><input type='checkbox' name='cuisines' value='latin-american' onClick={toggleCuisine} />Latino Americana</label>
-                                    <label><input type='checkbox' name='cuisines' value='middle-eastern' onClick={toggleCuisine} />Medio Orientale</label>
-                                    <label><input type='checkbox' name='cuisines' value='mediterranean' onClick={toggleCuisine} />Mediterranea</label>
-                                    <label><input type='checkbox' name='cuisines' value='mexican' onClick={toggleCuisine} />Messicana</label>
-                                    <label><input type='checkbox' name='cuisines' value='nordic' onClick={toggleCuisine} />Nordica</label>
-                                    <label><input type='checkbox' name='cuisines' value='spanish' onClick={toggleCuisine} />Spagnola</label>
-                                    <label><input type='checkbox' name='cuisines' value='southern' onClick={toggleCuisine} />del Sud</label>
-                                    <label><input type='checkbox' name='cuisines' value='thai' onClick={toggleCuisine} />Tailandese</label>
-                                    <label><input type='checkbox' name='cuisines' value='german' onClick={toggleCuisine} />Tedesca</label>
-                                    <label><input type='checkbox' name='cuisines' value='vietnamese' onClick={toggleCuisine} />Vietnamita</label>
-                                </div>    
+                                <h4>cucine</h4>
+                                <div className={style['subcolumn-container']}>                                    
+                                    <div className={style['subcolumn']}>                                    
+                                        <label><input type='checkbox' name='cuisines' value='african' onClick={toggleCuisine} />Africana</label>
+                                        <label><input type='checkbox' name='cuisines' value='american' onClick={toggleCuisine} />Americana</label>
+                                        <label><input type='checkbox' name='cuisines' value='british' onClick={toggleCuisine} />Britannica</label>
+                                        <label><input type='checkbox' name='cuisines' value='cajun' onClick={toggleCuisine} />Cajun</label>
+                                        <label><input type='checkbox' name='cuisines' value='caribbean' onClick={toggleCuisine} />Caraibica</label>
+                                        <label><input type='checkbox' name='cuisines' value='chinese' onClick={toggleCuisine} />Cinese</label>
+                                        <label><input type='checkbox' name='cuisines' value='korean' onClick={toggleCuisine} />Coreana</label>
+                                        <label><input type='checkbox' name='cuisines' value='jewish' onClick={toggleCuisine} />Ebraica</label>
+                                        <label><input type='checkbox' name='cuisines' value='eastern-european' onClick={toggleCuisine} />dell'Est Europa</label>
+                                        <label><input type='checkbox' name='cuisines' value='european' onClick={toggleCuisine} />Europea</label>
+                                        <label><input type='checkbox' name='cuisines' value='french' onClick={toggleCuisine} />Francese</label>
+                                        <label><input type='checkbox' name='cuisines' value='greek' onClick={toggleCuisine} />Greca</label>
+                                        <label><input type='checkbox' name='cuisines' value='indian' onClick={toggleCuisine} />Indiana</label>
+                                    </div>
+                                    <div className={style['subcolumn']}>
+                                        <label><input type='checkbox' name='cuisines' value='irish' onClick={toggleCuisine} />Irlandese</label>
+                                        <label><input type='checkbox' name='cuisines' value='italian' onClick={toggleCuisine} />Italiana</label>
+                                        <label><input type='checkbox' name='cuisines' value='japanese' onClick={toggleCuisine} />Giapponese</label>
+                                        <label><input type='checkbox' name='cuisines' value='latin-american' onClick={toggleCuisine} />Latino Americana</label>
+                                        <label><input type='checkbox' name='cuisines' value='middle-eastern' onClick={toggleCuisine} />Medio Orientale</label>
+                                        <label><input type='checkbox' name='cuisines' value='mediterranean' onClick={toggleCuisine} />Mediterranea</label>
+                                        <label><input type='checkbox' name='cuisines' value='mexican' onClick={toggleCuisine} />Messicana</label>
+                                        <label><input type='checkbox' name='cuisines' value='nordic' onClick={toggleCuisine} />Nordica</label>
+                                        <label><input type='checkbox' name='cuisines' value='spanish' onClick={toggleCuisine} />Spagnola</label>
+                                        <label><input type='checkbox' name='cuisines' value='southern' onClick={toggleCuisine} />del Sud</label>
+                                        <label><input type='checkbox' name='cuisines' value='thai' onClick={toggleCuisine} />Tailandese</label>
+                                        <label><input type='checkbox' name='cuisines' value='german' onClick={toggleCuisine} />Tedesca</label>
+                                        <label><input type='checkbox' name='cuisines' value='vietnamese' onClick={toggleCuisine} />Vietnamita</label>
+                                    </div>
+                                </div>                                  
                             </div>
                         </div>
                         <button type='submit' className={style['set-filters-button']}>applica filtri</button>                  

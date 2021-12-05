@@ -23,7 +23,7 @@
 .filters-input {
     background-color: #ffffff;
     padding: 20px;
-    display: none;
+    /* display: none; */
 }
 
 .filters-columns {
@@ -32,22 +32,26 @@
     justify-content: space-between;
 }
 
-.first-column, .second-column, .third-column, .forth-column {width: 100%;}
-.filter-section {
+.single-column, .double-section, .single-section, .one-section, .double-column, .subcolumn-container, .subcolumn {
     width: 100%;
 
     display: flex;
-    flex-direction: column;
+    flex-direction: column; 
 }
-.filter-section h4 {
+
+.filters-input h4 {
     text-transform: uppercase;
     margin-bottom: 5px;
 }
-.filter-section input[type='checkbox'] {margin-right: 5px;}
-.filter-section input[type='text'], .filter-section input[type='number'] {
+
+.filters-input input[type='checkbox'] {margin-right: 5px;}
+.filters-input input[type='text'], .filters-input input[type='number'] {
     font-size: 1em;
     padding: 7px;
+    width: 100%;
 }
+
+.filter-section:nth-child(2), .one-section, .double-column {margin-top: 35px;}
 
 .set-filters-button, .delete-filters-button {
     width: 100%;
@@ -104,7 +108,8 @@
 }
 
 @media only screen and (min-width: 500px) {
-    .first-column, .forth-column {width: calc(50% - 10px);}
+    .single-column, .double-column {width: calc(50% - 30px);}
+    .double-column {margin: 0;}
 }
 
 @media only screen and (min-width: 590px) {
@@ -112,13 +117,10 @@
 }
 
 @media only screen and (min-width: 750px) {
-    .first-column {
-        width: calc(66% - 10px);
-        display: flex;
-        justify-content: space-between;
-    }
-    .second-column, .third-column {width: calc(50% - 10px);}
-    .forth-column {width: calc(33% - 10px);}
+    .single-column {width: calc(33% - 10px);}
+    .double-column {width: calc(66% - 50px);}
+    .subcolumn-container {flex-direction: row;}
+    .subcolumn {width: calc(50% - 10px);}
 }
 
 @media only screen and (min-width: 780px) {
@@ -130,13 +132,11 @@
 }
 
 @media only screen and (min-width: 1000px) {
-    .first-column {width: calc(75% - 10px);}
-    .second-column {
-        width: calc(66% - 10px);
-        display: flex;
+    .single-column, .double-column {width: calc(50% - 30px);}
+    .single-column {
+        flex-direction: row;
         justify-content: space-between;
     }
-    .sub-column {width: calc(50% - 10px);}
-    .third-column {width: calc(33% - 10px)}
-    .forth-column {width: calc(25% - 10px);}
+    .double-section, .single-section {width: calc(50% - 30px);}
+    .one-section {margin: 0;}
 }
