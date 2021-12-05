@@ -57,13 +57,14 @@
 
 .about-container img {
     margin-top: 20px;
+    width: 100%;
     max-width: 960px;
 }
 /* ---------- end about section */
 
 /* ---------- RECIPES SECTION --------- */
 .recipes-section {
-    padding: 70px 0;
+    padding: 70px 20px;
     border-top: 20px solid var(--blue);
     border-bottom: 20px solid var(--blue);
 
@@ -74,7 +75,6 @@
 }
 
 .recipes-container {
-    padding: 0 20px;
     margin: 30px auto;
 
     display: grid;

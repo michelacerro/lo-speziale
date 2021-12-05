@@ -23,7 +23,7 @@
 .filters-input {
     background-color: #ffffff;
     padding: 20px;
-    /* display: none; */
+    display: none;
 }
 
 .filters-columns {
