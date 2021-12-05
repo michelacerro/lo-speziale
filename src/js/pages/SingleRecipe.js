@@ -93,7 +93,7 @@ const SingleRecipe = () => {
                 <div>
                     {/* details */}
                     <div className={style['info-details']}>
-                        <p><MdTimer className={style['single-icon']} />Pronto in {details.readyInMinutes} minuti</p>
+                        <p><MdTimer className={style['single-icon']} />Pronto in {details.readyInMinutes > 60 ? Math.floor(details.readyInMinutes / 60) + ' ore e ' + details.readyInMinutes % 60 : details.readyInMinutes} minuti</p>
                         <hr/>
                         <p><BsPeople className={style['single-icon']} />Dosi per {details.servings} {details.servings > 1 ? 'persone' : 'persona'}</p>
                     </div>
