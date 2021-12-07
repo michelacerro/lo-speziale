@@ -2,11 +2,11 @@
 import style from '../../css/pages/Recipes.module.css';
 
 // Dependencies
-import React, {useState/*, useEffect*/} from 'react';
-// import axios from 'axios';
+import React, {useState, useEffect} from 'react';
+import axios from 'axios';
 
 // Components
-// import RecipePreview from '../components/RecipePreview';
+import RecipePreview from '../components/RecipePreview';
 
 // Icons
 import {AiOutlineRight, AiOutlineLeft} from 'react-icons/ai';
@@ -17,19 +17,19 @@ const Recipes = () => {
     const apiKey = '820aa817b7ac4ae98dc454965fcaa392';
     // const apiKey = process.env.REACT_APP_SPOONACULAR_API_KEY;
     const [offset, setOffset] = useState(0);
-    // const [url, setUrl] = useState(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&offset=${offset}`);
+    const [url, setUrl] = useState(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&offset=${offset}`);
 
     // ----- get recipes
-    // const [recipes, setRecipes] = useState([]);
+    const [recipes, setRecipes] = useState([]);
 
-    // useEffect(() => {
-    //     async function fetchData () {
-    //         const response = await (axios.get(url))
-    //             .catch(error => alert(error));
-    //         setRecipes(response.data.results);
-    //     }
-    //     fetchData();
-    // }, [url]);
+    useEffect(() => {
+        async function fetchData () {
+            const response = await (axios.get(url))
+                .catch(error => alert(error));
+            setRecipes(response.data.results);
+        }
+        fetchData();
+    }, [url]);
 
     // ----- open filters section
     const [open, setOpen] = useState(false);
@@ -75,7 +75,7 @@ const Recipes = () => {
 
         // set initial config
         setOffset(0);
-        // setUrl(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&offset=${offset}`);
+        setUrl(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&offset=${offset}`);
 
         // set filters
         let queryModified = '';
@@ -85,21 +85,21 @@ const Recipes = () => {
         modifyQuery(query);
 
         if (queryModified !== '') {
-            // setUrl(prevUrl => prevUrl + `&query=${queryModified}`);
+            setUrl(prevUrl => prevUrl + `&query=${queryModified}`);
         }
 
         if (time !== undefined) {
-            // setUrl(prevUrl => prevUrl + `&maxReadyTime=${time}`);
+            setUrl(prevUrl => prevUrl + `&maxReadyTime=${time}`);
         }
 
         if (intolerances.length > 0) {
             const intolerancesToString = intolerances.join();
-            // setUrl(prevUrl => prevUrl + `&intolerances=${intolerancesToString}`);
+            setUrl(prevUrl => prevUrl + `&intolerances=${intolerancesToString}`);
         }
 
         if (cuisines.length > 0) {
             const cuisinesToString = cuisines.join();
-            // setUrl(prevUrl => prevUrl + `&cuisine=${cuisinesToString}`);
+            setUrl(prevUrl => prevUrl + `&cuisine=${cuisinesToString}`);
         }
 
         // reset query input
@@ -116,7 +116,7 @@ const Recipes = () => {
         setTime();
         setIntolerances([]);
         setCuisines([]);
-        // setUrl(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&offset=${offset}`);
+        setUrl(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&offset=${offset}`);
 
         const checkboxInput = document.querySelectorAll('input[type=checkbox]');
         for (let i = 0; i < checkboxInput.length; i++) {
@@ -125,9 +125,9 @@ const Recipes = () => {
     }
 
     // ------ "change page"
-    // const offsetString = '&offset=';
-    // const offsetStringLength = offsetString.length;
-    // const indexOfOffset = url.indexOf(offsetString);
+    const offsetString = '&offset=';
+    const offsetStringLength = offsetString.length;
+    const indexOfOffset = url.indexOf(offsetString);
 
     const nextRecipes = () => {
         if (offset < 900) {
@@ -135,11 +135,9 @@ const Recipes = () => {
             setOffset(newOffset);
 
             if (offset < 100) {
-                // const newUrl = url.substring(0, indexOfOffset + offsetStringLength) + newOffset + url.substring(indexOfOffset + offsetStringLength + 2);
-                // return setUrl(newUrl);
+                return setUrl(url.substring(0, indexOfOffset + offsetStringLength) + newOffset + url.substring(indexOfOffset + offsetStringLength + 2));
             } else if (offset >= 100) {
-                // const newUrl = url.substring(0, indexOfOffset + offsetStringLength) + newOffset + url.substring(indexOfOffset + offsetStringLength + 3);
-                // return setUrl(newUrl);
+                return setUrl(url.substring(0, indexOfOffset + offsetStringLength) + newOffset + url.substring(indexOfOffset + offsetStringLength + 3));
             }
         }        
     }
@@ -150,14 +148,11 @@ const Recipes = () => {
             setOffset(newOffset);
 
             if (offset === 10) {
-                // const newUrl = url.substring(0, indexOfOffset + offsetStringLength) + newOffset + url.substring(indexOfOffset + offsetStringLength + 1);
-                // return setUrl(newUrl);
+                return setUrl(url.substring(0, indexOfOffset + offsetStringLength) + newOffset + url.substring(indexOfOffset + offsetStringLength + 1));
             } else if (offset < 100) {
-                // const newUrl = url.substring(0, indexOfOffset + offsetStringLength) + newOffset + url.substring(indexOfOffset + offsetStringLength + 2);
-                // return setUrl(newUrl);
+                return setUrl(url.substring(0, indexOfOffset + offsetStringLength) + newOffset + url.substring(indexOfOffset + offsetStringLength + 2));
             } else if (offset >= 100) {
-                // const newUrl = url.substring(0, indexOfOffset + offsetStringLength) + newOffset + url.substring(indexOfOffset + offsetStringLength + 3);
-                // return setUrl(newUrl);
+                return setUrl(url.substring(0, indexOfOffset + offsetStringLength) + newOffset + url.substring(indexOfOffset + offsetStringLength + 3));
             }
         }
     }
@@ -259,18 +254,19 @@ const Recipes = () => {
                         ''
                 }
 
-                <div className={style['recipes-container']}>
-                    {/* {recipes.length > 0 
-                        ? 
-                            recipes.map(recipe => <RecipePreview key={recipe.id} info={recipe} />)
-                        :
-                            <p className={style['recipes-not-found']}>Siamo spiacenti, ma la ricerca da te tentata non ha prodotto risultati. Prova con una nuova ricerca.</p>
-                    } */}
-                </div>
+                
+                {recipes.length > 0 
+                    ? 
+                        <div className={style['recipes-container']}>
+                            {recipes.map(recipe => <RecipePreview key={recipe.id} info={recipe} />)}
+                        </div>
+                    :
+                        <p className={style['recipes-not-found']}>Siamo spiacenti, ma la ricerca da te tentata non ha prodotto risultati. Prova con una nuova ricerca.</p>
+                }
                 
                 <div className={style['buttons-container']}>
                     <button onClick={prevRecipes} className={style['recipes-button']} >{offset < 10 ? '' : <AiOutlineLeft />}</button>
-                    {/* <button onClick={nextRecipes} className={style['recipes-button']} >{offset > 900 || recipes.length < 10 ? '' : <AiOutlineRight />}</button> */}
+                    <button onClick={nextRecipes} className={style['recipes-button']} >{offset > 900 || recipes.length < 10 ? '' : <AiOutlineRight />}</button>
                 </div>
             </div>    
         </div>
