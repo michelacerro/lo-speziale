@@ -6,7 +6,6 @@
     padding: 10px;
     min-width: 170px;
     background-color: inherit;
-    background-color: #ffffff;
 
     text-decoration: none;
     color: var(--blue);
@@ -14,7 +13,7 @@
     transition: 0.5s linear;
 }
 .recipe-preview:hover {
-    background-color: inherit;
+    background-color: #ffffff;
     transform: scale(1.05);
 }
 
