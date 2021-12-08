@@ -11,7 +11,7 @@ const CourseBox = (props) => {
             <h2>{props.info.name}</h2>
             <p>{props.info.description}</p>
             <ul>
-                {props.info.details.map(detail => <li>{detail}</li>)}
+                {props.info.details.map((detail, index) => <li key={index}>{detail}</li>)}
             </ul>
             <h4>€ {props.info.price}</h4>
         </div>

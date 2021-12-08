@@ -17,7 +17,7 @@ const CoursesSection = () => {
         <div className={style['courses-section']}>
             <h1>Impara con noi</h1>
             <div className={style['courses-container']}>
-                {CoursesData.map(data => <CoursePreview key={'coursepreview' + data.id} info={data} />)}
+                {CoursesData.map(data => <CoursePreview key={'course' + data.id} info={data} />)}
             </div>
             <Button link='/corsi' text='scopri i nostri corsi' />
         </div>
