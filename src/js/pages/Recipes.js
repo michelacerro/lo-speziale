@@ -102,6 +102,9 @@ const Recipes = () => {
             setUrl(prevUrl => prevUrl + `&cuisine=${cuisinesToString}`);
         }
 
+        // setNumber(100);
+        setUrl(prevUrl => prevUrl + '&number=100');
+
         // reset query input
         setQuery('');
 
@@ -266,7 +269,7 @@ const Recipes = () => {
                 
                 <div className={style['buttons-container']}>
                     <button onClick={prevRecipes} className={style['recipes-button']} >{offset < 10 ? '' : <AiOutlineLeft />}</button>
-                    <button onClick={nextRecipes} className={style['recipes-button']} >{offset > 900 || recipes.length < 10 ? '' : <AiOutlineRight />}</button>
+                    <button onClick={nextRecipes} className={style['recipes-button']} >{offset > 900 || recipes.length < 10 || url.includes('&number=') ? '' : <AiOutlineRight />}</button>
                 </div>
             </div>    
         </div>
