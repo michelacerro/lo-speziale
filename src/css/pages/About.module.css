@@ -4,7 +4,7 @@
     align-items: center;
 }
 
-.section-part {padding: 70px 20px;}
+.section-part {padding: 100px 20px;}
 .section-part:nth-child(1), .section-part:nth-child(3) {max-width: 1000px;}
 .section-part:nth-child(2) {
     background-color: var(--white);
