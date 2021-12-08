@@ -3,17 +3,16 @@ import styles from '../../css/components/Header.module.css';
 
 // Dependencies
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 
 
 const Navbar = () => {
-    // animation navbar icon and toggle menu
+   // animation navbar icon and toggle menu
     const toggleMenu = () => {
     const bar1 = document.getElementById('icon-bar1');
     const bar2 = document.getElementById('icon-bar2');
     const bar3 = document.getElementById('icon-bar3');
     const navbarList = document.getElementById('navbar-list');
-        console.log('click');
         if (navbarList.style.display === 'none') {
             bar1.style.transform = 'rotate(45deg) translate(4px, 4px)';
             bar2.style.opacity = '0';
@@ -36,11 +35,11 @@ const Navbar = () => {
                 <span id='icon-bar3' className={styles['icon-bar']}></span>
             </div>
             <ul id='navbar-list' className={styles['navbar-list']}>
-                <Link to='/' className={styles['navbar-link']}>home</Link>
-                <Link to='/chi-siamo' className={styles['navbar-link']}>chi siamo</Link>
-                <Link to='/corsi' className={styles['navbar-link']}>corsi</Link>
-                <Link to='/ricette' className={styles['navbar-link']}>ricette</Link>
-                <Link to='/contatti' className={styles['navbar-link']}>contatti</Link>
+                <NavLink to='/' className={styles['navbar-link']} style={({isActive}) => ({fontWeight: isActive ? '500' : ''})}>home</NavLink>
+                <NavLink to='/chi-siamo' className={styles['navbar-link']} style={({isActive}) => ({fontWeight: isActive ? '500' : ''})}>chi siamo</NavLink>
+                <NavLink to='/corsi' className={styles['navbar-link']} style={({isActive}) => ({fontWeight: isActive ? '500' : ''})}>corsi</NavLink>
+                <NavLink to='/ricette' className={styles['navbar-link']} style={({isActive}) => ({fontWeight: isActive ? '500' : ''})}>ricette</NavLink>
+                <NavLink to='/contatti' className={styles['navbar-link']} style={({isActive}) => ({fontWeight: isActive ? '500' : ''})}>contatti</NavLink>
             </ul>
         </div>
     )
