@@ -3,6 +3,7 @@ import style from '../../css/pages/SingleRecipe.module.css';
 
 // Dependencies
 import React, {useState, useEffect} from 'react';
+import {useParams} from 'react-router-dom';
 import axios from 'axios';
 
 // Components
@@ -16,7 +17,7 @@ import {BsPeople} from 'react-icons/bs';
 
 const SingleRecipe = () => {
     // ---------- RECIPE SECTION
-    const id = window.location.pathname.substring(9);
+    const id = useParams().id;;
     const apiKey = '820aa817b7ac4ae98dc454965fcaa392';
     // const apiKey = process.env.REACT_APP_SPOONACULAR_API_KEY;
     
