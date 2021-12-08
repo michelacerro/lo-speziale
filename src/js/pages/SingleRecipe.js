@@ -36,26 +36,30 @@ const SingleRecipe = () => {
 
     // recipe ingredients request
     const [ingredients, setIngredients] = useState([]);
+    const [noIngredients, setNoIngredients] = useState('');
     const urlIngredients = `https://api.spoonacular.com/recipes/${id}/ingredientWidget.json?apiKey=${apiKey}`;
 
     useEffect(() => {
         async function fetchData () {
             const response =  await axios.get(urlIngredients)
                 .catch(error => alert(error));
-            setIngredients(response.data.ingredients);
+            if (response.data.ingredients.length > 0) {setIngredients(response.data.ingredients);}
+            else {setNoIngredients('Siamo spiacenti, ma la lista degli ingredienti di questa ricetta non è disponibile.')}
         };
         fetchData();
     }, [urlIngredients]);
 
     // recipe steps request
     const [steps, setSteps] = useState([]);
+    const [noSteps, setNoSteps] = useState('');
     const urlSteps = `https://api.spoonacular.com/recipes/${id}/analyzedInstructions?apiKey=${apiKey}`;
 
     useEffect(() => {
         async function fetchData () {
             const response = await axios.get(urlSteps)
                 .catch(error => alert(error));
-            setSteps(response.data[0].steps);
+            if (response.data.length > 0) {setSteps(response.data[0].steps);}
+            else {setNoSteps('Siamo spiacenti, ma la procedura per questa ricetta non è risponibile.');}
         }
         fetchData();
     }, [urlSteps]);
@@ -111,23 +115,25 @@ const SingleRecipe = () => {
             {/* ingredients */}
             <div className={style['ingredients-section']}>
                 <h2>Ingredienti</h2>
-                <div>
-                    {ingredients.map((ingredient, index) => {
-                        return (
-                            <p key={index}><b>{ingredient.amount.metric.value} {ingredient.amount.metric.unit}</b> {ingredient.name}</p>
-                        )
-                    })}
-                </div>
+                { ingredients.length > 0 
+                    ?
+                        <div>
+                            {ingredients.map((ingredient, index) => <p key={index}><b>{ingredient.amount.metric.value} {ingredient.amount.metric.unit}</b> {ingredient.name}</p>)}
+                        </div>
+                    :
+                        noIngredients
+                }
             </div>
 
             {/* steps */}
             <div className={style['steps-section']}>
                 <h2>Procedura</h2>
-                {steps.map(step => {
-                    return (
-                        <li key={step.number}><span>{step.number}</span><p>{step.step}</p></li>
-                    )
-                })}
+                {steps.length > 0 
+                    ?
+                        steps.map(step => <li key={step.number}><span>{step.number}</span><p>{step.step}</p></li>)
+                    :
+                        noSteps
+                }
             </div>
 
             {/* ---------- COMMENTS SECTION */}
