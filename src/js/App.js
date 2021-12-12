@@ -19,11 +19,15 @@ import Error from './pages/Error';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
+// Functionalities
+import ScrollToTop from './ScrollToTop';
+
 
 const App = () => {
   return (
     <div>
       <BrowserRouter>
+      <ScrollToTop />
         <Header />
         <Routes>
           <Route path='/' element={<Home />} />
