@@ -7,13 +7,15 @@
   scrollbar-width: none;
 }
 
+*::-webkit-scrollbar {
+  display: none;
+}
+
 :root {
   --blue: #122e40;
   --dark-blue: #102226;
   --red: #590202;
-  --dark-red: #400101;
   --yellow: #d9c666;
-  --light-yellow: #f2ebd5;
   --white: #f2f2f0;
 }
 
