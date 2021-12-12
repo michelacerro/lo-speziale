@@ -35,11 +35,11 @@ const Navbar = () => {
                 <span id='icon-bar3' className={styles['icon-bar']}></span>
             </div>
             <ul id='navbar-list' className={styles['navbar-list']}>
-                <NavLink to='/' className={styles['navbar-link']} style={({isActive}) => ({fontWeight: isActive ? '500' : ''})}>home</NavLink>
-                <NavLink to='/chi-siamo' className={styles['navbar-link']} style={({isActive}) => ({fontWeight: isActive ? '500' : ''})}>chi siamo</NavLink>
-                <NavLink to='/corsi' className={styles['navbar-link']} style={({isActive}) => ({fontWeight: isActive ? '500' : ''})}>corsi</NavLink>
-                <NavLink to='/ricette' className={styles['navbar-link']} style={({isActive}) => ({fontWeight: isActive ? '500' : ''})}>ricette</NavLink>
-                <NavLink to='/contatti' className={styles['navbar-link']} style={({isActive}) => ({fontWeight: isActive ? '500' : ''})}>contatti</NavLink>
+                <NavLink to='/' className={styles['navbar-link']} style={({isActive}) => ({fontWeight: isActive ? '500' : ''})} onClick={toggleMenu}>home</NavLink>
+                <NavLink to='/chi-siamo' className={styles['navbar-link']} style={({isActive}) => ({fontWeight: isActive ? '500' : ''})} onClick={toggleMenu}>chi siamo</NavLink>
+                <NavLink to='/corsi' className={styles['navbar-link']} style={({isActive}) => ({fontWeight: isActive ? '500' : ''})} onClick={toggleMenu}>corsi</NavLink>
+                <NavLink to='/ricette' className={styles['navbar-link']} style={({isActive}) => ({fontWeight: isActive ? '500' : ''})} onClick={toggleMenu}>ricette</NavLink>
+                <NavLink to='/contatti' className={styles['navbar-link']} style={({isActive}) => ({fontWeight: isActive ? '500' : ''})} onClick={toggleMenu}>contatti</NavLink>
             </ul>
         </div>
     )
