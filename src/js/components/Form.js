@@ -24,23 +24,23 @@ const Form = () => {
             <div className={style['form-data']}>
                 <label htmlFor='name'>
                     Nome
-                    <input type='text' id='name' name='name' placeholder='Nome' className={style['input']} />
+                    <input type='text' id='name' name='name' placeholder='Nome' className={style['input']} required />
                 </label>
                 <ValidationError field='name' prefix='Name' errors={state.errors} className={style['form-error']} />
 
                 <label htmlFor='email'>
                     Email
-                    <input type='email' id='email' name='email' placeholder='Email' className={style['input']} />
+                    <input type='email' id='email' name='email' placeholder='Email' className={style['input']} required />
                 </label>
                 <ValidationError field='email' prefix='Email' errors={state.errors} className={style['form-error']} />
             </div>
 
             <label htmlFor='message'>Messaggio</label>
             <textarea id='message' name='message' placeholder='Scrivi qui il tuo messaggio...' />
-            <ValidationError field='message' prefix='Message' errors={state.errors} className={style['form-error']} />
+            <ValidationError field='message' prefix='Message' errors={state.errors} className={style['form-error']} required />
 
             <div className={style['form-privacy']}>
-                <input type='checkbox' id='privacy' name='privacy' />
+                <input type='checkbox' id='privacy' name='privacy' required />
                 <label htmlFor='privacy'>Ho letto l'<a href='/privacy'>informativa privacy</a> e acconsento alla memorizzazione 
                 dei miei dati nel vostro archivio secondo quanto stabilito dal regolamento europeo 
                 per la protezione dei dati personali n. 678/2016. GDPR.</label>
