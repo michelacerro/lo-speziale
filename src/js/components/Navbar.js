@@ -37,7 +37,7 @@ const Navbar = () => {
                 <span id='icon-bar3' className={styles['icon-bar']}></span>
             </div>
             <ul id='navbar-list' className={styles['navbar-list']}>
-                <NavLink to='/' className={styles['navbar-link']} style={({isActive}) => ({fontWeight: isActive ? '500' : ''})} onClick={toggleMenu}>home</NavLink>
+                <NavLink to='/lo-speziale' className={styles['navbar-link']} style={({isActive}) => ({fontWeight: isActive ? '500' : ''})} onClick={toggleMenu}>home</NavLink>
                 <NavLink to='/chi-siamo' className={styles['navbar-link']} style={({isActive}) => ({fontWeight: isActive ? '500' : ''})} onClick={toggleMenu}>chi siamo</NavLink>
                 <NavLink to='/corsi' className={styles['navbar-link']} style={({isActive}) => ({fontWeight: isActive ? '500' : ''})} onClick={toggleMenu}>corsi</NavLink>
                 <NavLink to='/ricette' className={styles['navbar-link']} style={({isActive}) => ({fontWeight: isActive ? '500' : ''})} onClick={toggleMenu}>ricette</NavLink>
