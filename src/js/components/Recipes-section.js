@@ -11,8 +11,7 @@ import Button from './Button';
 
 
 const RecipesSection = () => {
-    const apiKey = '820aa817b7ac4ae98dc454965fcaa392';
-    // const apiKey = process.env.REACT_APP_SPOONACULAR_API_KEY;
+    const apiKey = process.env.REACT_APP_SPOONACULAR_API_KEY;
     const url = `https://api.spoonacular.com/recipes/random?apiKey=${apiKey}&number=3`;
     const [recipes, setRecipes] = useState([]);
 

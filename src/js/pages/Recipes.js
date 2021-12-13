@@ -14,8 +14,7 @@ import {VscSettings} from 'react-icons/vsc';
 
 
 const Recipes = () => {
-    const apiKey = '820aa817b7ac4ae98dc454965fcaa392';
-    // const apiKey = process.env.REACT_APP_SPOONACULAR_API_KEY;
+    const apiKey = process.env.REACT_APP_SPOONACULAR_API_KEY;
     const [offset, setOffset] = useState(0);
     const [url, setUrl] = useState(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&offset=${offset}`);
 

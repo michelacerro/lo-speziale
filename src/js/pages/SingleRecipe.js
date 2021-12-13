@@ -18,8 +18,7 @@ import {BsPeople} from 'react-icons/bs';
 const SingleRecipe = () => {
     // ---------- RECIPE SECTION
     const id = useParams().id;;
-    const apiKey = '820aa817b7ac4ae98dc454965fcaa392';
-    // const apiKey = process.env.REACT_APP_SPOONACULAR_API_KEY;
+    const apiKey = process.env.REACT_APP_SPOONACULAR_API_KEY;
     
     // recipe details request
     const [details, setDetails] = useState([]);
